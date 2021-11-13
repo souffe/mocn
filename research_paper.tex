@@ -39,16 +39,16 @@ elastic optical networks, wavelength division multiplexing, routing, multicastin
 \subsection{Multicasting}
 Multicasting is a type of routing scheme in a network where data is transferred from the root node to selected receiving nodes.
 
-In multicast data is propagated over minimum Steiner tree or minimum spanning tree of all recipients so that it is sent over each link exactly once. It is more efficient than unicasting to selected nodes. Even though unicast also adopts a minimum Steiner tree or minimum spanning tree, paths are calculated separately between the root and each receiving node. Data would likely be sent over the same link multiple times if that link exists in many calculated paths.
+In multicast data is propagated over minimum Steiner tree or minimum spanning tree of all recipients so that it is sent over each link exactly once \cite{multicast_definition}. It is more efficient than unicasting to selected nodes. Even though unicast also adopts a minimum Steiner tree or minimum spanning tree, paths are calculated separately between the root and each receiving node. Data would likely be sent over the same link multiple times if that link exists in many calculated paths.
 
 Therefore multicast requires less traffic than unicast.
 
 \subsection{Wavelength division multiplexing}
 Wavelength division multiplexing (WDM) is physical technology that increases the capacity of optical fibre by using electromagnetic properties of light.
 
-In fibre-optic communication carrier of data is light. Essentially it is an electromagnetic wave with inversely proportional properties of wavelength and frequency. Light of different wavelengths can be multiplexed together, creating a complex signal that can be transferred over a single optical fibre. At the receiving end signal is demultiplexed back into many signals and each is provided to corresponding recipients.
+In fibre-optic communication carrier of data is light. Essentially it is an electromagnetic wave with inversely proportional properties of wavelength and frequency. Light of different wavelengths can be multiplexed together, creating a complex signal that can be transferred over a single optical fibre\cite{wdm_general}. At the receiving end signal is demultiplexed back into many signals, and each is provided to corresponding recipients.
 
-Following are types of WDM systems:
+Following are types of WDM systems \cite{cwdm} \cite{dwdm}:
 \begin{itemize}
 	\item normal (WDM), wavelengths 1310 nm and 1550 nm on one fibre
 	\item coarse (CWDM), wavelengths 1271 nm to 1611 nm with channel spacing 20 nm
@@ -63,14 +63,34 @@ A substantial component of WDM is thin-film filters. They can pass certain wavel
 	\label{demultiplexing}
 \end{figure}
 
-\subsection{EONs}
-Elastic optical network (EON) is a novel approach to optical networks, stemming from WDM systems. In WDM grid of spectrum resources is fixed, while in EON the grid is flexible, it changes to accommodate traffic. Channel spacing is also smaller, thus saving spectrum resources.
+\subsection{Elastic optical networks}
+The idea for an elastic optical network (EON) stems from WDM systems. Mikavica \& Kostić-Ljubisavljević, 2020 \cite{eon_definition} define it as:
+
+\begin{quote}
+Optical network architecture providing data transmission with spectrum allocation depending on traffic demands.
+\end{quote}
+
+WDM network is rigid in resource distribution. It imposes complete allocation of one wavelength, even if the amount of data transferred is far below channel capacity. Algorithms, which optimize resource allocation, improve that, but true innovation lies in EON and its finer granularity of available spectrum resources.
+
+EON introduces slithering of optical spectrum into frequency slots (FS), which are 25, 12.5 or 6.25 GHz wide \cite{eon_fs}. A couple of FS construct channel with guard bands on each side to prevent overlapping of frequencies. Many factors determine the number of FS that goes into one channel; the allocation of slots in the frequency grid is not permanent, but flexible, hence the name \textit{flexigrid}. Figure \ref{eon_flexigrid} presents the exemplary allocation of FS in \textit{flexigrid}.
+
+\begin{figure}[htbp]
+	\centerline{\includegraphics[scale=0.65]{flexigrid.png}}
+	\caption{Flexigrid in EON}
+	\label{eon_flexigrid}
+\end{figure}
 
 \section{Multicasting in WDM}
 
 \section{Multicasting in EONs}
 
 \begin{thebibliography}{00}
-\bibitem{b1}
+\bibitem{multicast_definition} K. Walkowiak, "Modeling and optimization of computer networks", \textit{PRINTPAP}, Wrocław University of Technology, 2011, pp. 66-67.
+\bibitem{wdm_general} K. Walkowiak, "Modeling and optimization of computer networks", \textit{PRINTPAP}, Wrocław University of Technology, 2011, p. 10.
+\bibitem{cwdm} "G.694.2: Spectral grids for WDM applications: CWDM wavelength grid", Telecommunications Standardization Sector of ITU, 2003.
+\bibitem{dwdm} "G.694.1: Spectral grids for WDM applications: DWDM frequency grid", Telecommunications Standardization Sector of ITU, 2020.
+\bibitem{eon_definition} B. Mikavica and A. Kostić-Ljubisavljević, "Security Issues of Cloud Migration and Optical Networking in Future Internet.", \textit{Cyber Security of Industrial Control Systems in the Future Internet Environment}, IGI Global, 2020, pp. 91-106.
+\bibitem{eon_fs} E. Biernacka and A. Lasoń, "Elastic Optical Networks", Telekomunikacja i Techniki Informacyjne, 2013
+\bibitem{eon_orig} O. Gerstel, M. Jinno, A. Lord and S. Yoo, "Elastic Optical Networking: A New Dawn for the Optical Layer?", \textit{IEEE Communications Magazine} no. 50, 2012
 \end{thebibliography}
 \end{document}
